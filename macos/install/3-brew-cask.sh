@@ -5,46 +5,50 @@ brew tap homebrew/cask-versions
 
 brewcaskapps=(
   adobe-acrobat-reader
+  anaconda
   android-studio
   atom
-  charles
+  # charles
   cheatsheet
   cyberduck
   diffmerge
-  docker
-  dropbox
+  # docker
+  # dropbox
   fanny
   firefox
   flux
-  google-backup-and-sync
+  gimp
+  # google-backup-and-sync
   google-chrome
-  google-cloud-sdk
-  google-drive-file-stream
+  # google-cloud-sdk
+  # google-drive-file-stream
   imagealpha
   imageoptim
   itsycal
-  java
-  jetbrains-toolbox
+  # java
+  # jetbrains-toolbox
   metabase
+  # mullvadvpn
   mysqlworkbench
-  openemu
+  notion
+  # openemu
   osxfuse
   plex
-  plex-media-server
-  postico
+  # plex-media-server
+  # postico
   postman
-  skype
+  # skype
   sourcetree
   spectacle
   teamviewer
-  transmission
+  # transmission
   virtualbox
   visual-studio-code
-  vlc
+  # vlc
   wireshark
   xquartz
-  zoomus
-  zotero
+  # zoomus
+  # zotero
 )
 
 brewcaskapps+=(
@@ -81,17 +85,17 @@ else
   done
 fi
 
-echo "⛳️ installing Python Language Server for code editor like Atom"
-pip3 install python-language-server --user
-
-echo "⛳️ installing Google App Engine Python support"
-if which brew > /dev/null && [ -f "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc" ]; then
-  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
-fi;
-if which brew > /dev/null && [ -f "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc" ]; then
-  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
-fi;
-gcloud components install app-engine-python
-gcloud components install app-engine-python-extras
+# echo "⛳️ installing Python Language Server for code editor like Atom"
+# pip3 install python-language-server --user
+#
+# echo "⛳️ installing Google App Engine Python support"
+# if which brew > /dev/null && [ -f "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc" ]; then
+#   source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
+# fi;
+# if which brew > /dev/null && [ -f "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc" ]; then
+#   source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
+# fi;
+# gcloud components install app-engine-python
+# gcloud components install app-engine-python-extras
 
 brew cleanup

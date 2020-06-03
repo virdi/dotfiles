@@ -7,8 +7,8 @@ export EDITOR='atom --wait'
 #Path setup
 if [[ $OS == 'Darwin' ]]; then
   # Golang
-  mkdir -p ~/Documents/go
-  export GOPATH=~/Documents/go
+  mkdir -p ~/code/go
+  export GOPATH=~/code/go
   # GOROOT-based install location to your PATH:
   export PATH="$PATH:$(brew --prefix)/opt/go/libexec/bin"
 
@@ -37,6 +37,9 @@ shopt -s histappend
 # Make the Bash History size unlimited
 export HISTSIZE=
 export HISTFILESIZE=
+
+# Add timestamp format to Bash History
+export HISTTIMEFORMAT='%F %T '
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -91,3 +94,21 @@ eval "$(dircolors ~/.dircolors)" # https://github.com/seebi/dircolors-solarized/
 if [ -d ~/Library/Preferences/org.dystroy.broot/launcher/bash/br ]; then
   source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br;
 fi;
+
+# For Rust, ToDo: stow
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

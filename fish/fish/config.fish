@@ -31,3 +31,15 @@ status --is-interactive; and source (rbenv init -|psub)
 if test -d ~/Library/Preferences/org.dystroy.broot/launcher/fish/br
   source ~/Library/Preferences/org.dystroy.broot/launcher/fish/br
 end
+
+# Start SSH Agent using functions/fish_ssh_agent.fish
+fish_ssh_agent
+
+# Address brew messafes to Paths 
+set -g fish_user_paths "/usr/local/opt/sqlite/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /usr/local/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<

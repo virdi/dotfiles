@@ -13,7 +13,7 @@ brewapps=(
   # update the shell files to ensure the gnu version of some packages are available
   # check out https://github.com/fabiomaia/linuxify/blob/master/.linuxify
   "automake"
-  "aws-google-auth"
+  # "aws-google-auth"
   "aws-shell"
   "awscli"
   "bash-completion@2"
@@ -35,7 +35,9 @@ brewapps=(
   "grep" # Install more recent versions of some macOS tools.
   "httpie"
   "hub" # github util. gotta love `hub fork`, `hub create`, `hub checkout <PRurl>`
+  "imagemagick" # for generating modified icons for vpn app from svg
   "jq" # for json manipulation in commandline
+  "librsvg" # for generating modified icons for vpn app from svg
   "lua"
   "mas"
   "moreutils" # Install some other useful utilities like `sponge`.
@@ -50,10 +52,12 @@ brewapps=(
   "qpdf"
   "rbenv"
   "redis"
+  "rustup"
   "screen" # Install more recent versions of some macOS tools.
   "shellcheck"
   "ssh-copy-id"
   "stow"
+  "swiftlint" # For Swift (compiling wireguard app on OS X)
   "telnet"
   "terraform"
   "tcptraceroute"
@@ -63,9 +67,10 @@ brewapps=(
   "unrar"
   "vim" # Install more recent versions of some macOS tools.
   "wget"
+  "wireguard-tools"
   "yarn"
   "youtube-dl"
-  "zopfli"
+  # "zopfli"
 )
 
 brewappsinstall=()
