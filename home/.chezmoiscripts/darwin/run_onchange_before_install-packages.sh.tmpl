@@ -9,7 +9,7 @@ set -eufo pipefail
        "microsoft-office-businesspro"
        "google-chrome"
        "slack" 
-       "visual-studio-code"-}}
+       "visual-studio-code" -}}
 
 {{ if eq .chezmoi.arch "amd64" -}}
 {{   $brews = concat $brews (list
