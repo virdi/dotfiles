@@ -1,6 +1,15 @@
 #!/bin/zsh
 # Source: https://github.com/Remi-deronzier/public-dotfiles/blob/main/install.sh
 
+# Install Command Line Tools
+echo "Installing command line tools..."
+
+if [ -d "$(xcode-select -p)" ]; then
+  echo "xcode-select: already installed"
+else
+  xcode-select --install
+fi
+
 echo "Setting up your shell..."
 
 # Check for Homebrew and install if we don't have it
@@ -10,7 +19,10 @@ if test ! $(which brew); then
 fi
 
 brew install zsh
-brew install oh
+sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
+
+brew install chezmoi
+brew install --cask iterm2
 
 # TODO: For Linux
 # Source: https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/
@@ -25,4 +37,3 @@ brew install oh
 # sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
 
 # Source: https://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/
-sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
