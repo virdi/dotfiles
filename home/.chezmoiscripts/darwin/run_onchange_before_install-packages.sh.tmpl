@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -eufo pipefail
 
@@ -6,10 +6,7 @@ set -eufo pipefail
        "awscli"
        "git" -}}
 {{ $casks := list
-       "google-chrome"
-       "microsoft-office-businesspro"
-       "slack" 
-       "visual-studio-code" -}}
+       "slack" -}}
 
 {{ if eq .chezmoi.arch "amd64" -}}
 {{   $brews = concat $brews (list
@@ -22,8 +19,11 @@ set -eufo pipefail
 {{   $brews = concat $brews (list
        "ffmpeg") -}}
 {{   $casks = concat $casks (list
-       "keepassxc"
        "balenaetcher"
+       "google-chrome"
+       "keepassxc"
+       "microsoft-office-businesspro"
+       "visual-studio-code"
        "whatsapp") -}}
 {{ end -}}
 

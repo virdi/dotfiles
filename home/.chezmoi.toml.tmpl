@@ -5,12 +5,34 @@
 {{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
 {{- $personal := true -}}{{/* true if this machine should have personal secrets */}}
 {{- $work := false -}}{{/* true if this machine should have work secrets */}}
+{{- $computer_name := "artemis" -}}
 {{- "" -}}
 
 {{- $name := promptStringOnce . "name" "Your Full Name" -}}
 {{- $email := promptStringOnce . "email" "Github Email address" -}}
+{{- $computer_ownership := promptStringOnce . "computer_ownership" "Owner of this computer (work or personal)" -}}
+
+# Set computer name (as done via System Preferences → Sharing)
+{{ if eq $computer_ownership "personal" -}}
+{{- $personal = true -}}
+{{- $work = false -}}
+{{- $computer_name = "artemis" -}}
+
+{{- else if eq $computer_ownership "work" -}}
+{{- $personal = false -}}
+{{- $work = true -}}
+{{- $computer_name = "SSAI-S1126" -}}
+
+{{- else }}	
+{{- $personal = false -}}
+{{- $work = false -}}
+{{- $computer_name = "SSAI-S1126" -}}
+
+{{- end }}
+
 
 [data]
+    computer_name = {{ $computer_name | quote }}
     github_user = "virdi"
     name = {{ $name | quote }}
     email = {{ $email | quote }}
