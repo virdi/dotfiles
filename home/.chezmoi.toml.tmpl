@@ -1,0 +1,31 @@
+{{/* boolean feature tags */}}
+{{- $docker := false -}}{{/* true if this machine should have Docker installed */}}
+{{- $ephemeral := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */}}
+{{- $flarm := false -}}{{/* true if this machine is used for FLARM */}}
+{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
+{{- $work := true -}}{{/* true if this machine should have work secrets */}}
+{{- "" -}}
+
+{{- $name := promptStringOnce . "name" "Your Full Name" -}}
+{{- $email := promptStringOnce . "email" "Github Email address" -}}
+
+[data]
+    github_user = "virdi"
+    name = {{ $name | quote }}
+    email = {{ $email | quote }}
+    work_email = "Makhan.Virdi@ssaihq.com"
+    personal_email = "Makhan.Virdi@gmail.com"
+    myto_email = "virdi@myto.ai"
+    personal = {{ $personal }}
+    work = {{ $work }}
+
+#[keepassxc]
+#    database = "/Users/makhan.virdi/Documents/settings/TerraVault.kdbx"
+
+[data.alacritty.big]
+    fontsize = 18
+    font = "DejaVu Serif"
+[data.alacritty.small]
+    fontsize = 12
+    font = "DejaVu Sans Mono"

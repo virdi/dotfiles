@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+
+[user]
+	name = {{ .name | quote }}
+{{- if eq .chezmoi.hostname "SSAI-S1126" }}
+	email = {{ .work_email | quote }}
+{{- else if eq .chezmoi.hostname "artemis" }}
+	email = {{ .personal_email | quote }}
+{{- else }}	
+	email = {{ .personal_email | quote }}
+{{- end }}

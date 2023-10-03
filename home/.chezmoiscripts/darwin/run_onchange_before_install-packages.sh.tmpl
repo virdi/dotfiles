@@ -1,0 +1,39 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+{{ $brews := list
+     "git" -}}
+{{ $casks := list
+     "slack" -}}
+
+{{ if eq .chezmoi.arch "amd64" -}}
+{{   $brews = concat $brews (list
+       "shellcheck") -}}
+{{   $casks = concat $casks (list
+       "temurin") -}}
+{{ end -}}
+
+{{ if .personal -}}
+{{   $brews = concat $brews (list
+       "postgis"
+       "postgresql"
+       "pspg") -}}
+{{   $casks = concat $casks (list
+       "1password-cli"
+       "balenaetcher"
+       "signal"
+       "telegram"
+       "transmission"
+       "viber"
+       "whatsapp") -}}
+{{ end -}}
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+{{ range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
+{{ end -}}
+EOF

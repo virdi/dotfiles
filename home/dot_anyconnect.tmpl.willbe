@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnyConnectPreferences>
+<DefaultUser>makhan.virdi</DefaultUser>
+<DefaultSecondUser></DefaultSecondUser>
+<ClientCertificateThumbprint>67B7186707B52EA2063D135CBBB064B78888737A</ClientCertificateThumbprint>
+<MultipleClientCertificateThumbprints></MultipleClientCertificateThumbprints>
+<ServerCertificateThumbprint></ServerCertificateThumbprint>
+<DefaultHostName>ehub.ssaihq.com</DefaultHostName>
+<DefaultHostAddress></DefaultHostAddress>
+<DefaultGroup>SSAI</DefaultGroup>
+<ProxyHost></ProxyHost>
+<ProxyPort></ProxyPort>
+<SDITokenType>none</SDITokenType>
+<ControllablePreferences></ControllablePreferences>
+</AnyConnectPreferences>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<AnyConnectPreferences>
+<DefaultUser>{{ (keepassxc "Work/AnyConnect").UserName }}</DefaultUser>
+<DefaultSecondUser></DefaultSecondUser>
+<ClientCertificateThumbprint>{{ keepassxcAttribute "Work/AnyConnect" "ClientCertificateThumbprint" }}</ClientCertificateThumbprint>
+<MultipleClientCertificateThumbprints></MultipleClientCertificateThumbprints>
+<ServerCertificateThumbprint></ServerCertificateThumbprint>
+<DefaultHostName>{{ keepassxcAttribute "Work/AnyConnect" "DefaultHostName" }}</DefaultHostName>
+<DefaultHostAddress></DefaultHostAddress>
+<DefaultGroup>{{ keepassxcAttribute "Work/AnyConnect" "DefaultGroup" }}</DefaultGroup>
+<ProxyHost></ProxyHost>
+<ProxyPort></ProxyPort>
+<SDITokenType>none</SDITokenType>
+<ControllablePreferences></ControllablePreferences>
+<BlockUntrustedServers>true</BlockUntrustedServers>
+<LocalLanAccess>true</LocalLanAccess>
+<DisableCaptivePortalDetection>false</DisableCaptivePortalDetection>
+<AutoConnectOnStart>true</AutoConnectOnStart></ControllablePreferences>
+</AnyConnectPreferences>
