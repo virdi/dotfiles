@@ -9,3 +9,7 @@
 {{- else }}	
 	email = {{ .personal_email | quote }}
 {{- end }}
+
+[core]
+  excludesfile = ~/.gitignore
+  ignorecase = true
