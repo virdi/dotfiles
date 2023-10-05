@@ -4,6 +4,7 @@ set -eufo pipefail
 
 {{ $brews := list
        "awscli"
+       "bash"
        "git" -}}
 {{ $casks := list
        "slack" -}}
@@ -24,7 +25,8 @@ set -eufo pipefail
        "keepassxc"
        "microsoft-office-businesspro"
        "visual-studio-code"
-       "whatsapp") -}}
+       "whatsapp"
+       "zoom") -}}
 {{ end -}}
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
