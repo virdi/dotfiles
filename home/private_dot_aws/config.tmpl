@@ -1,0 +1,19 @@
+[default]
+region = us-west-2
+output = json
+[profile ssai-vt]
+sso_session = ssai-vt
+sso_account_id = {{ keepassxcAttribute "Work_SSAI/aws-config" "account-id" }} 
+sso_role_name = {{ keepassxcAttribute "Work_SSAI/aws-config" "role" }} 
+region = us-east-2
+output = json
+[sso-session ssai-vt]
+sso_start_url = {{ keepassxcAttribute "Work_SSAI/aws-config" "sso-url-ssai-vt" }}  
+sso_region = us-east-2
+sso_registration_scopes = sso:account:access
+[profile nasa-edl]
+region = us-west-2
+output = json
+[profile irad2023]
+region = us-west-1
+output = json

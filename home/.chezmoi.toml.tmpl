@@ -6,6 +6,7 @@
 {{- $personal := true -}}{{/* true if this machine should have personal secrets */}}
 {{- $work := false -}}{{/* true if this machine should have work secrets */}}
 {{- $computer_name := "artemis" -}}
+{{- $keepass_db := "db" -}}
 {{- "" -}}
 
 {{- $name := promptStringOnce . "name" "Your Full Name" -}}
@@ -17,16 +18,19 @@
 {{- $personal = true -}}
 {{- $work = false -}}
 {{- $computer_name = "artemis" -}}
+{{- $keepass_db = "/Users/virdi/Library/CloudStorage/OneDrive-ScienceSystemsandApplications,Inc/Mobile-Docs/TerraVault.kdbx" -}}
 
 {{- else if eq $computer_ownership "work" -}}
 {{- $personal = false -}}
 {{- $work = true -}}
 {{- $computer_name = "SSAI-S1126" -}}
+{{- $keepass_db = "/Users/makhan.virdi/Library/CloudStorage/OneDrive-ScienceSystemsandApplications,Inc/Mobile-Docs/TerraVault.kdbx" -}}
 
 {{- else }}	
 {{- $personal = false -}}
 {{- $work = false -}}
 {{- $computer_name = "SSAI-S1126" -}}
+{{- $keepass_db = "/Users/virdi/Library/CloudStorage/OneDrive-ScienceSystemsandApplications,Inc/Mobile-Docs/TerraVault.kdbx" -}}
 
 {{- end }}
 
@@ -43,7 +47,7 @@
     work = {{ $work }}
 
 [keepassxc]
-    database = "/Users/virdi/Library/CloudStorage/OneDrive-ScienceSystemsandApplications,Inc/Mobile-Docs/TerraVault.kdbx"
+    database = {{ $keepass_db | quote }}
 
 [data.alacritty.big]
     fontsize = 18
