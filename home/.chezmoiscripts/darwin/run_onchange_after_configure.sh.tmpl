@@ -16,9 +16,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "artemis"
-sudo scutil --set HostName "artemis"
-sudo scutil --set LocalHostName "artemis"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "artemis"
+sudo scutil --set ComputerName {{ .computer_name | quote }}
+sudo scutil --set HostName {{ .computer_name | quote }}
+sudo scutil --set LocalHostName {{ .computer_name | quote }}
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string {{ .computer_name | quote }}
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
