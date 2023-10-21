@@ -16,9 +16,19 @@ set -eufo pipefail
        "temurin") -}}
 {{ end -}}
 
+{{ if .work -}}
+{{   $brews = concat $brews (list
+       "openconnect") -}}
+{{   $casks = concat $casks (list
+       "openconnect-gui"
+       "kap"
+       "keepassxc") -}}
+{{ end -}}
+
 {{ if .personal -}}
 {{   $brews = concat $brews (list
-       "ffmpeg") -}}
+       "ffmpeg"
+       "openconnect") -}}
 {{   $casks = concat $casks (list
        "balenaetcher"
        "firefox"
@@ -27,7 +37,7 @@ set -eufo pipefail
        "keepassxc"
        "mambaforge"
        "microsoft-office-businesspro"
-       "openconnect"
+       "openconnect-gui"
        "visual-studio-code"
        "whatsapp"
        "zoom") -}}
